@@ -1,10 +1,10 @@
 # Horseman - a headless Wordpress theme
 
-Horseman in a headles Wordpress theme with improved REST API.
+Horseman is a headless Wordpress theme with improved REST API.
 
 The improvements include:
 
-- Added thumbnail URL's with all sizes to `/posts` request
+- Added thumbnail URLs with all sizes to `/posts` request
 - Added author's name and avatar URL to `/posts` request
 - Added post title and slug to `/comments` request
 
