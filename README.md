@@ -7,6 +7,16 @@ The improvements include:
 - Added thumbnail URLs with all sizes to `/posts` request
 - Added author's name and avatar URL to `/posts` request
 - Added post title and slug to `/comments` request
+- Added menus `/hm/v1/menus`
+
+## Installation
+
+1. Put folder with the files in `wp-content/themes` directory like any other Wordpress theme.
+2. Activate the theme in WP's admin panel.
+
+## Configuration
+
+You can change active menu and home page in 'Settings' menu in admin panel.
 
 ## Data structure
 
@@ -49,7 +59,26 @@ The improvements include:
 }
 ```
 
-## Installation
+### Menu data
 
-1. Put folder with the files in `wp-content/themes` directory like any other Wordpress theme
-2. Activate the theme in WP's admin panel
+```json
+{
+  "term_id": 1,
+  "slug": "menu-slug",
+  "name": "Menu name",
+  "description": "Menu description",
+  "parent": 0,
+  "active": true,
+  "count": 1,
+  "items": [
+    {
+      "title": "Item title",
+      "url": "item-url",
+      "target": "_blank",
+      "description": "Item description",
+      "attr_title": "Hover title",
+      "classes": ["additional-class"]
+    }
+  ]
+}
+```
