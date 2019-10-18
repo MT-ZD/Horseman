@@ -1,5 +1,8 @@
 <?php
+load_theme_textdomain('horseman');
+
 add_action('rest_api_init', 'rest_imporvements');
+
 function rest_imporvements()
 {
     register_rest_field(
@@ -154,7 +157,7 @@ if (is_admin()) {
 
 function horseman_menu()
 {
-    add_options_page('Horseman Settings', 'Horseman', 'customize', 'horseman-settings', 'horseman_admin_page');
+    add_options_page('Horseman Settings', '🐎 Horseman', 'customize', 'horseman-settings', 'horseman_admin_page');
 }
 
 function horseman_admin_page()
@@ -162,7 +165,7 @@ function horseman_admin_page()
     ?>
     <div class="wrap">
         <h1>
-            Horseman Settings
+            🐎 <?= __("Horseman settings", "horseman") ?>
         </h1>
         <form action="options.php" method="post">
             <?php
@@ -217,6 +220,14 @@ function horseman_admin_page()
                             <textarea name="hm_home_page_html" class="large-text code" rows="10"><?= get_option('hm_home_page_html') ?></textarea>
                         </td>
                     </tr>
+                    <tr>
+                        <th>
+                            <?= __("Allow anonymous comments", "horseman") ?>
+                        </th>
+                        <td>
+                            <input type="checkbox" name="hm_anonymous_comments" value="true" <?= get_option('hm_anonymous_comments') ? 'checked' : '' ?>>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <?php submit_button(); ?>
@@ -231,4 +242,9 @@ function horseman_settings()
     register_setting('horseman-settings', 'hm_home_page');
     register_setting('horseman-settings', 'hm_home_page_url');
     register_setting('horseman-settings', 'hm_home_page_html');
+    register_setting('horseman-settings', 'hm_anonymous_comments');
+}
+
+if (get_option('hm_anonymous_comments')) {
+    add_filter('rest_allow_anonymous_comments', '__return_true');
 }

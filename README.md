@@ -1,4 +1,4 @@
-# Horseman - a headless Wordpress theme
+# 🐎 Horseman - a headless Wordpress theme
 
 Horseman is a headless Wordpress theme with improved REST API.
 
